@@ -2,6 +2,7 @@ import React from "react";
 import ToggleTheme from "./ToggleTheme";
 
 function Header() {
+  
   return (
     <header className="bg-purple-900 text-white p-4">
       <nav className="flex justify-between items-center">

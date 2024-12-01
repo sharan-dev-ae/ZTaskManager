@@ -11,6 +11,7 @@ const defaultContext = {
 const GlobalContext = createContext(defaultContext);
 
 export const useGlobalContext = () => {
+  console.log("TEST")
   return useContext(GlobalContext);
 };
 
