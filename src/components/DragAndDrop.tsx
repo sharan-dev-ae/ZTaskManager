@@ -50,6 +50,7 @@ const DragAandDrop = ({ tasks }: { tasks: Task[] }) => {
       return () => {
         list1Sortable.destroy();
         list2Sortable.destroy();
+        list3Sortable.destroy();
       };
     }
   }, []);
