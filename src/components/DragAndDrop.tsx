@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import Sortable from "sortablejs";
 
 interface Task {
   id: number;
   name: string;
-  status: "pending" | "done";
+  status: string;
 }
 
 const DragAandDrop = ({ tasks }: { tasks: Task[] }) => {

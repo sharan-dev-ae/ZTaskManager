@@ -1,4 +1,3 @@
-import React from 'react'
 import DragAandDrop from '../components/DragAndDrop'
 
 function TaskManager() {

@@ -1,7 +1,6 @@
 // src/pages/Home.tsx
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ToggleTheme from '../components/ToggleTheme';
 import { useGlobalContext } from '../context/context';
 import backgroundImage from '../assets/dark-purple-3840x2160-17330.png';
 
