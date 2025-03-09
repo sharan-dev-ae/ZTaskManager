@@ -5,27 +5,27 @@ on:
 
 jobs:
   commit-loop:
-    runs-on: ubuntu-latest  # Use a Ubuntu environment for the job
+    runs-on: ubuntu-latest  # Use Ubuntu environment
 
     steps:
-      # Step 1: Checkout the code
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step 2: Configure Git with your username and email
+      # Step 2: Configure Git with GitHub Actions bot username and email
       - name: Configure Git
         run: |
-          git config --global user.name "sharan-dev-ae"
-          git config --global user.email "sharan.devae@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Step 3: Loop to make commits every 10 seconds
+      # Step 3: Commit every 10 seconds (loop)
       - name: Commit every 10 seconds
         run: |
-          for i in {1..10}; do  # Loop 10 times, 100 seconds in total
-            echo "Test commit at $(date)" >> test_commit.txt  # Modify file to make a commit
+          for i in {1..10}; do  # Loop 10 times
+            echo "Test commit at $(date)" >> test_commit.txt
             git add .
             git commit -m "Automated test commit - $(date)" || echo "No changes to commit"
-            git push
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
             echo "Commit #$i pushed at $(date)"
             sleep 10  # Wait for 10 seconds before next commit
           done
