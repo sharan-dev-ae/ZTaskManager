@@ -16,7 +16,7 @@ jobs:
       - name: Configure Git
         run: |
           git config --global user.name "sharan-dev-ae"
-          git config --global user.email "sharan.devae@gmail.comhow "
+          git config --global user.email "sharan.devae@gmail.com"
 
       # Step 3: Loop to make commits every 10 seconds
       - name: Commit every 10 seconds
