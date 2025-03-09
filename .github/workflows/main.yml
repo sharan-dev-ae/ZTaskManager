@@ -25,7 +25,7 @@ jobs:
             echo "Test commit at $(date)" >> test_commit.txt
             git add .
             git commit -m "Automated test commit - $(date)" || echo "No changes to commit"
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            git push https://x-access-token:${{ secrets.GITHUBTOKEN }}@github.com/${{ github.repository }}.git
             echo "Commit #$i pushed at $(date)"
             sleep 10  # Wait for 10 seconds before next commit
           done
