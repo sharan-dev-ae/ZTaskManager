@@ -2,10 +2,10 @@ name: Automated Daily Commits
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Commit 1: midnight UTC
+    - cron: '0 0 * * *'  # Commit 1: Midnight UTC
     - cron: '0 8 * * *'  # Commit 2: 8 AM UTC
     - cron: '0 16 * * *'  # Commit 3: 4 PM UTC
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   commit:
@@ -13,18 +13,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # Prevents using default GitHub Actions bot credentials
 
-      - name: Configure Git
+      - name: Configure Git with Personal Identity
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "sharan-dev-ae"
+          git config --global user.email "sharan-dev-ae@users.noreply.github.com"
 
       - name: Pull latest changes
-        run: |
-          git pull --rebase origin main
+        run: git pull --rebase origin main || true
 
-      - name: Commit
+      - name: Commit and Push Changes
         run: |
           echo "Automated commit at $(date)" >> test_commit.txt
           git add .
