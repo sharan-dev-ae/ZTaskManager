@@ -15,7 +15,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: false  # Prevents using default GitHub Actions bot credentials
+          token: ${{ secrets.GITHUB_TOKEN }}  # Uses GitHub's built-in token
+          persist-credentials: true  # Ensures credentials are available for pushing
 
       - name: Configure Git with Personal Identity
         run: |
@@ -30,4 +31,4 @@ jobs:
           echo "Automated commit at $(date)" >> test_commit.txt
           git add .
           git commit -m "Automated test commit - $(date)" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUBTOKEN }}@github.com/${{ github.repository }}.git
+          git push origin main
