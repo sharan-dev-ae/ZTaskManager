@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Commit 1: Midnight UTC
     - cron: '0 8 * * *'  # Commit 2: 8 AM UTC
+    - cron: '0 12 * * *'  # Commit 3: 12 PM UTC
+    - cron: '0 14 * * *'  # Commit 3: 2 PM UTC
     - cron: '0 16 * * *'  # Commit 3: 4 PM UTC
   workflow_dispatch:  # Allows manual triggering
 
